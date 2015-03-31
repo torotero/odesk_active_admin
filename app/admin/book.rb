@@ -14,5 +14,31 @@ ActiveAdmin.register Book do
   #   permitted
   # end
 
+  permit_params :image, :title, :author
+
+
+
+
+
+   show do
+    # renders app/views/admin/posts/_some_partial.html.erb
+    @book = Book.find(params[:id])
+    render 'book.html.erb'
+  end
+
+
+
+
 
 end
+
+
+
+
+
+
+
+
+
+
+

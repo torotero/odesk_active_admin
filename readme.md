@@ -5,6 +5,9 @@ doc  ->   //https://github.com/activeadmin/activeadmin/blob/master/docs/0-instal
 
 
 
+User: admin@example.com
+Password: password
+
 
 
 
@@ -21,3 +24,23 @@ But first, an even smaller test. Could you create a base Rails app that uses Act
 Books should have a cover image, a title, and an author.
 
 Then make a couple simple views where normal users can browse the books
+
+
+
+
+
+====================
+
+
+  controller do
+
+    def create
+      @book = Book.new(permit_params)
+    end
+
+
+
+    private
+  def permit_params
+    params.require(:article).permit(:image, :title, :author)
+  end
